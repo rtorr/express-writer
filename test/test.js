@@ -10,6 +10,9 @@ describe('Write something', function(){
 
   describe('Blah', function(){
     beforeEach(function(done){
+      var req = {
+        originalUrl: '/hello-world'
+      };
       writer.scribe(req, '<h1>Hello World</h1>', done);
     });
     afterEach(function(done){
@@ -18,9 +21,7 @@ describe('Write something', function(){
         done();
       })
     });
-    var req = {
-      originalUrl: '/hello-world'
-    };
+
     it('It should write something to dist', function(done){
       fs.readFile('dist/hello-world/index.html', 'utf8', function(err,data){
         assert(data === '<h1>Hello World</h1>');
