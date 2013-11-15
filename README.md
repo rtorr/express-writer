@@ -1,6 +1,6 @@
 #express-writer
 
-A small piece of code that sits inside expresses res.send function. It captures the route that was called, the body
+A small piece of code that sits inside express's res.send function. It captures the route that was called, the body
 that would be sent to the browser, and writes that result to an html file.
 
 Think about it like this:
