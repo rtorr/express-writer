@@ -8,7 +8,7 @@ var assert = require('assert');
 
 describe('Write something', function(){
 
-  describe('Blah', function(){
+  describe('scribe()', function(){
     beforeEach(function(done){
       var req = {
         originalUrl: '/hello-world'
