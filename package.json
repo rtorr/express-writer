@@ -1,6 +1,6 @@
 {
   "name": "express-writer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows developers to develop like they would in Express, but output rendered html as static files",
   "main": "index.js",
   "scripts": {
