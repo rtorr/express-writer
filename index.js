@@ -13,19 +13,19 @@ var fs = require('fs'),
  * @param destination The destination of the file to be written
  * @param body The content to be written to the file
  */
-var writeHtml = function(destination, body){
-
+var writeHtml = function(destination, body, callback){
+  var msg;
   fs.writeFile(destination, body, function(err){
-
     /*@todo: Better handling here*/
     if (err){
+      msg = err;
       throw new Error("Writer:: Issue writing to destination '" + destination + "'");
     }else {
-      console.log('Wrote to >' + destination);
+      msg = 'Wrote to >' + destination;
+      console.log(msg);
     }
-
   });
-
+  callback();
 };
 
 /**
@@ -33,7 +33,7 @@ var writeHtml = function(destination, body){
  * @param req The Express wrapped request made to the server.
  * @param body The html body to be rendered.
  */
-var scribe = function(req, body) {
+var scribe = function(req, body, callback) {
 
   var directory = DIST_BASE_DIR + req.originalUrl,
       destination = DIST_BASE_DIR;
@@ -50,7 +50,7 @@ var scribe = function(req, body) {
     if (err){
       throw new Error("Writer:: Issue creating directory '" + destination + "'");
     }else {
-      writeHtml(destination, body);
+      writeHtml(destination, body, callback);
     }
   });
 
