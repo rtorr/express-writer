@@ -1,6 +1,6 @@
 /**
  * Express Writer
- * Authors: rtorr and jhuen
+ * Authors: Richard Torruellas and Jacob Heun
  * Allows developers to develop like they would in Express, but output rendered html as static files.
  */
 
