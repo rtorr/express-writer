@@ -1,6 +1,6 @@
 {
   "name": "express-writer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allows developers to develop like they would in Express, but output rendered html as static files",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
       "email": "rtorruellas@gmail.com"
     },
     {
-      "name": "Jake Huen",
+      "name": "Jake Heun",
       "email": "jacobheun@gmail.com"
     }
   ],
@@ -23,6 +23,8 @@
     "mkdirp": "~0.3.5"
   },
   "devDependencies": {
-    "express": "3.4.4"
+    "express": "3.4.4",
+    "rimraf": "latest",
+    "mocha": "latest"
   }
 }
