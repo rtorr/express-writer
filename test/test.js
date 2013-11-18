@@ -8,12 +8,17 @@ var assert = require('assert');
 
 describe('Write something', function(){
 
+  /**
+   * TODO: More test coverage, test actual implementation to catch bugs
+   */
   describe('scribe()', function(){
     beforeEach(function(done){
       var req = {
         originalUrl: '/hello-world'
       };
-      writer.scribe(req, '<h1>Hello World</h1>', done);
+      writer.scribe(req, '<h1>Hello World</h1>', function(){
+        done();
+      });
     });
     afterEach(function(done){
       rimraf(path.join(__dirname, "../dist"), function (er) {

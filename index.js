@@ -18,14 +18,13 @@ var writeHtml = function(destination, body, callback){
   fs.writeFile(destination, body, function(err){
     /*@todo: Better handling here*/
     if (err){
-      msg = err;
       throw new Error("Writer:: Issue writing to destination '" + destination + "'");
     }else {
       msg = 'Wrote to >' + destination;
-      console.log(msg);
+      callback(msg);
     }
   });
-  callback();
+
 };
 
 /**
@@ -72,8 +71,12 @@ var watch = function(req, res, next) {
 
     // Call the original send to finish the request
     _send.apply(res, arguments);
-    // Write out the content
-    scribe(req, arguments[0]);
+
+    //Write out the content
+    //callback is for testing purposes
+    scribe(req, arguments[0], function(msg){
+      console.log(msg);
+    });
 
   };
 
