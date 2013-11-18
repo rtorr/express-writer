@@ -35,5 +35,18 @@ describe('Write something', function(){
     });
   });
 
+
+  describe('watch()', function(){
+    it('OMG its not blowing up', function(done){
+      var req = {
+        originalUrl: '/hello-world'
+      };
+      var res = '<h1>Hello World</h1>';
+      writer.watch(req, res, function(){
+        done();
+      });
+    });
+  });
+
 });
 
