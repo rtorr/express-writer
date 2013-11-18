@@ -8,12 +8,17 @@ var assert = require('assert');
 
 describe('Write something', function(){
 
+  /**
+   * TODO: More test coverage, test actual implementation to catch bugs
+   */
   describe('scribe()', function(){
     beforeEach(function(done){
       var req = {
         originalUrl: '/hello-world'
       };
-      writer.scribe(req, '<h1>Hello World</h1>', done);
+      writer.scribe(req, '<h1>Hello World</h1>', function(){
+        done();
+      });
     });
     afterEach(function(done){
       rimraf(path.join(__dirname, "../dist"), function (er) {
@@ -25,6 +30,19 @@ describe('Write something', function(){
     it('It should write something to dist', function(done){
       fs.readFile('dist/hello-world/index.html', 'utf8', function(err,data){
         assert(data === '<h1>Hello World</h1>');
+        done();
+      });
+    });
+  });
+
+
+  describe('watch()', function(){
+    it('OMG its not blowing up', function(done){
+      var req = {
+        originalUrl: '/hello-world'
+      };
+      var res = '<h1>Hello World</h1>';
+      writer.watch(req, res, function(){
         done();
       });
     });
