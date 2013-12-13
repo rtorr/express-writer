@@ -6,7 +6,7 @@ var assert = require('assert');
 
 /* mocha globals - describe, beforeEach, afterEach, it */
 
-describe('Write something', function(){
+describe('express writer', function(){
 
   /**
    * TODO: More test coverage, test actual implementation to catch bugs
@@ -46,6 +46,35 @@ describe('Write something', function(){
         done();
       });
     });
+  });
+
+  describe('distribution directory', function() {
+
+    beforeEach(function(done) {
+      var req = {
+        originalUrl: '/hello-world'
+      };
+      writer.setWriteDirectory('./out');
+      writer.scribe(req, '<h1>Hello World</h1>', function(){
+        done();
+      });
+    });
+
+    afterEach(function(done){
+      writer.setWriteDirectory('./dist');
+      rimraf(path.join(__dirname, "../out"), function (er) {
+        if (er) throw er;
+        done();
+      })
+    });
+
+    it('should be changeable', function(done){
+      fs.readFile('out/hello-world/index.html', 'utf8', function(err,data){
+        assert(data === '<h1>Hello World</h1>');
+        done();
+      });
+    });
+
   });
 
 });

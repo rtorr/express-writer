@@ -17,15 +17,24 @@ We have an example implementation here:
 
 #small example
 
-    var writer = require('express-writer');
-    app.use(writer.watch);
+```
+var writer = require('express-writer');
+app.use(writer.watch);
+```
 
 Hit a route in your browser, and watch the static files generate in the `dist` directory.
 
+## Change the dist directory
+
+```
+writer.setWriteDirectory('./out');
+```
 
 #Test
 
-    node_modules/mocha/bin/mocha test/test.js
+```
+npm test
+```
 
 
 The MIT License (MIT)
