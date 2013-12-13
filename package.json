@@ -1,10 +1,10 @@
 {
   "name": "express-writer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Allows developers to develop like they would in Express, but output rendered html as static files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/mocha test/test.js"
   },
   "repository": "git@github.com:rtorr/express-writer.git",
   "author": "Richard Torruellas <rtorruellas@gmail.com>",

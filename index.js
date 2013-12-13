@@ -84,9 +84,14 @@ var watch = function(req, res, next) {
 
 };
 
+var setWriteDirectory = function(newDirectory) {
+  DIST_BASE_DIR = newDirectory;
+};
+
 exports = module.exports = {
 
   scribe : scribe,
+  setWriteDirectory: setWriteDirectory,
   watch : watch
 
 };
